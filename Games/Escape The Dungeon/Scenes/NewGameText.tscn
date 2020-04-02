@@ -1,0 +1,217 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/NewGameText.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Misc/Background.png" type="Texture" id=2]
+[ext_resource path="res://Etc/Credits/Somewhere.png" type="Texture" id=3]
+[ext_resource path="res://Etc/Credits/In The Bottom.png" type="Texture" id=4]
+[ext_resource path="res://Etc/Credits/Of A Dungeon.png" type="Texture" id=5]
+[ext_resource path="res://Audio/SFX/Explosions/Double/sfx_exp_double1.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/SFX/Explosions/Shortest/sfx_exp_shortest_hard7.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/SFX/Explosions/Long/sfx_exp_long3.wav" type="AudioStream" id=8]
+[ext_resource path="res://Audio/SFX/Explosions/Medium Length/sfx_exp_medium1.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/SFX/Explosions/Medium Length/sfx_exp_medium9.wav" type="AudioStream" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "OpenScreen"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Somewhere:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1.8, 3.9, 5.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("In The Bottom:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.8, 2.8, 4.3, 5.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Of A Dungeon:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.3, 3.2, 4.3, 5.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("SoundEffects/AudioStreamPlayer2D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("SoundEffects/AudioStreamPlayer2D2:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SoundEffects/AudioStreamPlayer2D3:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 2.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("SoundEffects/AudioStreamPlayer2D4:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("SoundEffects/AudioStreamPlayer2D5:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "QuickSkip"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animated/Foreground:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("SkipTimer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+
+[node name="Somewhere" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 1035.55, 790.438 )
+texture = ExtResource( 2 )
+
+[node name="Somewhere" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 960, 216 )
+scale = Vector2( 0.39048, 0.39048 )
+texture = ExtResource( 3 )
+
+[node name="In The Bottom" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 960, 724.8 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="Of A Dungeon" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 960, 864 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 5 )
+
+[node name="Animated" type="AnimationPlayer" parent="."]
+anims/OpenScreen = SubResource( 1 )
+anims/QuickSkip = SubResource( 2 )
+
+[node name="Foreground" type="Sprite" parent="Animated"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 997.775, 756 )
+scale = Vector2( 1.00984, 1 )
+z_index = 5
+texture = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="SkipTimer" type="Timer" parent="."]
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+current = true
+zoom = Vector2( 1.75, 1.75 )
+
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundEffects"]
+stream = ExtResource( 6 )
+volume_db = -5.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundEffects"]
+position = Vector2( 848.011, 783.852 )
+stream = ExtResource( 7 )
+volume_db = -15.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="SoundEffects"]
+position = Vector2( 1338.96, 175.739 )
+stream = ExtResource( 8 )
+volume_db = -20.0
+
+[node name="AudioStreamPlayer2D4" type="AudioStreamPlayer2D" parent="SoundEffects"]
+position = Vector2( 1851.27, 868.697 )
+stream = ExtResource( 9 )
+volume_db = -5.0
+
+[node name="AudioStreamPlayer2D5" type="AudioStreamPlayer2D" parent="SoundEffects"]
+position = Vector2( 326.372, 689.009 )
+stream = ExtResource( 10 )
+volume_db = -20.0
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="SkipTimer" to="." method="_on_SkipTimer_timeout"]

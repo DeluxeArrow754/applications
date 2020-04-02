@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_alarm_loop6.wav-68c2e0b93f00d309b4547a2efb892576.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/General Sounds/Alarms/Alarms/sfx_alarm_loop6.wav"
+dest_files=[ "res://.import/sfx_alarm_loop6.wav-68c2e0b93f00d309b4547a2efb892576.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Etc/new_dynamicfont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/RichTextLabel.gd" type="Script" id=2]
+
+[node name="RichTextLabel" type="RichTextLabel"]
+margin_right = 622.0
+margin_bottom = 142.0
+custom_fonts/normal_font = ExtResource( 1 )
+text = "InT3RNET"
+script = ExtResource( 2 )
+
+[node name="ms" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+[connection signal="timeout" from="ms" to="." method="_on_ms_timeout"]

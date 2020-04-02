@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/NewCutscene.wav-5999e267368f67c5994c905ff8e221d6.sample"
+
+[deps]
+
+source_file="res://Audio/Music/NewCutscene.wav"
+dest_files=[ "res://.import/NewCutscene.wav-5999e267368f67c5994c905ff8e221d6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,528 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Scripts/TitleCredits.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Misc/Background.png" type="Texture" id=2]
+[ext_resource path="res://Etc/Tile.tres" type="TileSet" id=3]
+[ext_resource path="res://Etc/Credits/White [DΞLUXE].png" type="Texture" id=4]
+[ext_resource path="res://Etc/Credits/Presents.png" type="Texture" id=5]
+[ext_resource path="res://Etc/Credits/0x72.png" type="Texture" id=6]
+[ext_resource path="res://Etc/Credits/SpriteBy.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/Soulless Run Right.gd" type="Script" id=8]
+[ext_resource path="res://Enemies/Soulless/Soulless [4].png" type="Texture" id=9]
+[ext_resource path="res://Enemies/Soulless/Soulless [5].png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Soulless/Soulless [6].png" type="Texture" id=11]
+[ext_resource path="res://Enemies/Soulless/Soulless [7].png" type="Texture" id=12]
+[ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=13]
+[ext_resource path="res://Hero/Hero [1].png" type="Texture" id=14]
+[ext_resource path="res://Hero/Hero [2].png" type="Texture" id=15]
+[ext_resource path="res://Hero/Hero [3].png" type="Texture" id=16]
+[ext_resource path="res://Hero/Hero [4].png" type="Texture" id=17]
+[ext_resource path="res://Hero/Hero [5].png" type="Texture" id=18]
+[ext_resource path="res://Hero/Hero [6].png" type="Texture" id=19]
+[ext_resource path="res://Hero/Hero [7].png" type="Texture" id=20]
+[ext_resource path="res://Hero/Hero [8].png" type="Texture" id=21]
+[ext_resource path="res://Etc/Controls/KeyToSkip.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Audio/Music/TitleCredits.wav" type="AudioStream" id=23]
+[ext_resource path="res://Audio/SFX/General Sounds/Menu Sounds/sfx_menu_select2.wav" type="AudioStream" id=24]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Running",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="Animation" id=5]
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animated/Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4, 3.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animated/Background:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("KeyToSkip/To Skip:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6, 1.5, 2.8, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("KeyToSkip/Space:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.6, 1.5, 2.8, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 0.992157, 0.992157, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -40.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "QuickEnd"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animated/Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Timers/SkipTimer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("KeyToSkip/To Skip:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("KeyToSkip/Space:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, -80.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SkipButton:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animated/Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, -80.0 ]
+}
+
+[node name="TitleCredits" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Floor" type="Sprite" parent="."]
+position = Vector2( 3513.88, 1046.26 )
+scale = Vector2( 1.46559, 1.40535 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="TileSet" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 65524, 11, 0, 65525, 11, 0, 65526, 11, 0, 65527, 11, 0, 65528, 11, 0, 65529, 11, 0, 65530, 11, 0, 65531, 11, 0, 65532, 11, 0, 65533, 11, 0, 65534, 11, 0, 65535, 51, 0, 0, 11, 0, 1, 11, 0, 2, 11, 0, 3, 11, 0, 4, 11, 0, 5, 11, 0, 6, 11, 0, 7, 11, 0, 8, 11, 0, 9, 51, 0, 10, 11, 0, 11, 11, 0, 12, 11, 0, 13, 11, 0, 14, 11, 0, 15, 11, 0, 16, 11, 0, 17, 51, 0, 18, 11, 0, 19, 11, 0, 20, 11, 0, 21, 11, 0, 22, 11, 0, 23, 11, 0, 24, 11, 0, 25, 51, 0, 26, 11, 0, 27, 11, 0, 28, 11, 0, 29, 11, 0, 30, 11, 0, 31, 11, 0, 32, 11, 0, 33, 11, 0, 34, 11, 0, 35, 51, 0, 36, 11, 0, 37, 11, 0, 38, 11, 0, 39, 11, 0, 40, 11, 0, 41, 51, 0, 42, 11, 0, 43, 11, 0, 44, 51, 0, 45, 11, 0, 46, 51, 0, 47, 11, 0, 48, 11, 0, 49, 11, 0, 50, 11, 0, 51, 11, 0, 52, 11, 0, 53, 11, 0, 54, 11, 0, 55, 11, 0, 56, 11, 0, 57, 11, 0, 58, 11, 0, 59, 11, 0, 60, 11, 0, 61, 11, 0, 62, 11, 0, 63, 11, 0, 64, 11, 0, 131060, 28, 0, 131061, 28, 0, 131062, 28, 0, 131063, 28, 0, 131064, 28, 0, 131065, 28, 0, 131066, 28, 0, 131067, 28, 0, 131068, 28, 0, 131069, 28, 0, 131070, 28, 0, 131071, 52, 0, 65536, 28, 0, 65537, 28, 0, 65538, 28, 0, 65539, 28, 0, 65540, 28, 0, 65541, 28, 0, 65542, 28, 0, 65543, 28, 0, 65544, 28, 0, 65545, 52, 0, 65546, 28, 0, 65547, 28, 0, 65548, 28, 0, 65549, 28, 0, 65550, 28, 0, 65551, 28, 0, 65552, 28, 0, 65553, 52, 0, 65554, 23, 0, 65555, 2, 0, 65556, 28, 0, 65557, 2, 0, 65558, 28, 0, 65559, 2, 0, 65560, 28, 0, 65561, 52, 0, 65562, 28, 0, 65563, 28, 0, 65564, 28, 0, 65565, 28, 0, 65566, 28, 0, 65567, 28, 0, 65568, 28, 0, 65569, 28, 0, 65570, 28, 0, 65571, 52, 0, 65572, 28, 0, 65573, 28, 0, 65574, 28, 0, 65575, 28, 0, 65576, 28, 0, 65577, 52, 0, 65578, 28, 0, 65579, 28, 0, 65580, 52, 0, 65581, 2, 0, 65582, 52, 0, 65583, 28, 0, 65584, 28, 0, 65585, 28, 0, 65586, 28, 0, 65587, 28, 0, 65588, 28, 0, 65589, 28, 0, 65590, 28, 0, 65591, 28, 0, 65592, 28, 0, 65593, 28, 0, 65594, 28, 0, 65595, 28, 0, 65596, 28, 0, 65597, 28, 0, 65598, 28, 0, 65599, 28, 0, 65600, 28, 0, 196596, 28, 0, 196597, 28, 0, 196598, 28, 0, 196599, 28, 0, 196600, 28, 0, 196601, 28, 0, 196602, 28, 0, 196603, 23, 0, 196604, 28, 0, 196605, 28, 0, 196606, 28, 0, 196607, 52, 0, 131072, 28, 0, 131073, 28, 0, 131074, 28, 0, 131075, 28, 0, 131076, 24, 0, 131077, 28, 0, 131078, 28, 0, 131079, 28, 0, 131080, 28, 0, 131081, 52, 0, 131082, 28, 0, 131083, 28, 0, 131084, 28, 0, 131085, 28, 0, 131086, 28, 0, 131087, 28, 0, 131088, 24, 0, 131089, 52, 0, 131090, 28, 0, 131091, 28, 0, 131092, 28, 0, 131093, 28, 0, 131094, 25, 0, 131095, 28, 0, 131096, 28, 0, 131097, 52, 0, 131098, 28, 0, 131099, 28, 0, 131100, 28, 0, 131101, 28, 0, 131102, 28, 0, 131103, 28, 0, 131104, 33, 0, 131105, 28, 0, 131106, 28, 0, 131107, 52, 0, 131108, 28, 0, 131109, 28, 0, 131110, 28, 0, 131111, 26, 0, 131112, 28, 0, 131113, 52, 0, 131114, 28, 0, 131115, 28, 0, 131116, 52, 0, 131117, 28, 0, 131118, 52, 0, 131119, 28, 0, 131120, 28, 0, 131121, 28, 0, 131122, 28, 0, 131123, 28, 0, 131124, 28, 0, 131125, 28, 0, 131126, 28, 0, 131127, 28, 0, 131128, 28, 0, 131129, 28, 0, 131130, 28, 0, 131131, 28, 0, 131132, 28, 0, 131133, 28, 0, 131134, 28, 0, 131135, 28, 0, 131136, 28, 0, 262132, 28, 0, 262133, 28, 0, 262134, 28, 0, 262135, 28, 0, 262136, 28, 0, 262137, 28, 0, 262138, 28, 0, 262139, 28, 0, 262140, 28, 0, 262141, 31, 0, 262142, 28, 0, 262143, 52, 0, 196608, 28, 0, 196609, 25, 0, 196610, 28, 0, 196611, 28, 0, 196612, 28, 0, 196613, 28, 0, 196614, 23, 0, 196615, 28, 0, 196616, 28, 0, 196617, 52, 0, 196618, 28, 0, 196619, 28, 0, 196620, 28, 0, 196621, 28, 0, 196622, 28, 0, 196623, 28, 0, 196624, 28, 0, 196625, 52, 0, 196626, 28, 0, 196627, 31, 0, 196628, 28, 0, 196629, 28, 0, 196630, 28, 0, 196631, 28, 0, 196632, 28, 0, 196633, 52, 0, 196634, 28, 0, 196635, 28, 0, 196636, 28, 0, 196637, 28, 0, 196638, 28, 0, 196639, 28, 0, 196640, 28, 0, 196641, 28, 0, 196642, 28, 0, 196643, 52, 0, 196644, 28, 0, 196645, 27, 0, 196646, 28, 0, 196647, 28, 0, 196648, 28, 0, 196649, 52, 0, 196650, 23, 0, 196651, 28, 0, 196652, 52, 0, 196653, 28, 0, 196654, 52, 0, 196655, 28, 0, 196656, 31, 0, 196657, 28, 0, 196658, 28, 0, 196659, 28, 0, 196660, 28, 0, 196661, 28, 0, 196662, 28, 0, 196663, 28, 0, 196664, 28, 0, 196665, 28, 0, 196666, 28, 0, 196667, 28, 0, 196668, 28, 0, 196669, 28, 0, 196670, 28, 0, 196671, 28, 0, 196672, 28, 0, 327668, 1, 0, 327669, 1, 0, 327670, 1, 0, 327671, 1, 0, 327672, 1, 0, 327673, 1, 0, 327674, 1, 0, 327675, 1, 0, 327676, 1, 0, 327677, 1, 0, 327678, 1, 0, 327679, 53, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 53, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 1, 0, 262160, 1, 0, 262161, 53, 0, 262162, 1, 0, 262163, 1, 0, 262164, 1, 0, 262165, 1, 0, 262166, 1, 0, 262167, 1, 0, 262168, 1, 0, 262169, 53, 0, 262170, 1, 0, 262171, 1, 0, 262172, 1, 0, 262173, 1, 0, 262174, 1, 0, 262175, 1, 0, 262176, 1, 0, 262177, 1, 0, 262178, 1, 0, 262179, 53, 0, 262180, 1, 0, 262181, 32, 0, 262182, 1, 0, 262183, 1, 0, 262184, 1, 0, 262185, 53, 0, 262186, 1, 0, 262187, 1, 0, 262188, 53, 0, 262189, 1, 0, 262190, 53, 0, 262191, 1, 0, 262192, 1, 0, 262193, 1, 0, 262194, 1, 0, 262195, 1, 0, 262196, 1, 0, 262197, 1, 0, 262198, 1, 0, 262199, 1, 0, 262200, 1, 0, 262201, 1, 0, 262202, 1, 0, 262203, 1, 0, 262204, 1, 0, 262205, 1, 0, 262206, 1, 0, 262207, 1, 0, 262208, 1, 0, 393204, 5, 0, 393205, 5, 0, 393206, 5, 0, 393207, 5, 0, 393208, 5, 0, 393209, 5, 0, 393210, 5, 0, 393211, 5, 0, 393212, 5, 0, 393213, 5, 0, 393214, 5, 0, 393215, 5, 0, 327680, 5, 0, 327681, 5, 0, 327682, 5, 0, 327683, 5, 0, 327684, 5, 0, 327685, 5, 0, 327686, 5, 0, 327687, 5, 0, 327688, 5, 0, 327689, 5, 0, 327690, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327695, 5, 0, 327696, 5, 0, 327697, 5, 0, 327698, 5, 0, 327699, 5, 0, 327700, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 327705, 5, 0, 327706, 5, 0, 327707, 5, 0, 327708, 5, 0, 327709, 5, 0, 327710, 5, 0, 327711, 5, 0, 327712, 5, 0, 327713, 5, 0, 327714, 5, 0, 327715, 5, 0, 327716, 5, 0, 327717, 5, 0, 327718, 5, 0, 327719, 5, 0, 327720, 5, 0, 327721, 5, 0, 327722, 5, 0, 327723, 5, 0, 327724, 5, 0, 327725, 5, 0, 327726, 5, 0, 327727, 5, 0, 327728, 5, 0, 327729, 5, 0, 327730, 5, 0, 327731, 5, 0, 327732, 5, 0, 327733, 5, 0, 327734, 5, 0, 327735, 5, 0, 327736, 5, 0, 327737, 5, 0, 327738, 5, 0, 327739, 5, 0, 327740, 5, 0, 327741, 5, 0, 327742, 5, 0, 327743, 5, 0, 327744, 5, 0, 458740, 5, 0, 458741, 5, 0, 458742, 5, 0, 458743, 5, 0, 458744, 5, 0, 458745, 5, 0, 458746, 5, 0, 458747, 5, 0, 458748, 5, 0, 458749, 5, 0, 458750, 5, 0, 458751, 5, 0, 393216, 5, 0, 393217, 5, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393225, 5, 0, 393226, 5, 0, 393227, 5, 0, 393228, 5, 0, 393229, 5, 0, 393230, 5, 0, 393231, 5, 0, 393232, 5, 0, 393233, 5, 0, 393234, 5, 0, 393235, 5, 0, 393236, 5, 0, 393237, 5, 0, 393238, 5, 0, 393239, 5, 0, 393240, 5, 0, 393241, 5, 0, 393242, 5, 0, 393243, 5, 0, 393244, 5, 0, 393245, 5, 0, 393246, 5, 0, 393247, 5, 0, 393248, 5, 0, 393249, 5, 0, 393250, 5, 0, 393251, 5, 0, 393252, 5, 0, 393253, 5, 0, 393254, 5, 0, 393255, 5, 0, 393256, 5, 0, 393257, 5, 0, 393258, 5, 0, 393259, 5, 0, 393260, 5, 0, 393261, 5, 0, 393262, 5, 0, 393263, 5, 0, 393264, 5, 0, 393265, 5, 0, 393266, 5, 0, 393267, 5, 0, 393268, 5, 0, 393269, 5, 0, 393270, 5, 0, 393271, 5, 0, 393272, 5, 0, 393273, 5, 0, 393274, 5, 0, 393275, 5, 0, 393276, 5, 0, 393277, 5, 0, 393278, 5, 0, 393279, 5, 0, 393280, 5, 0, 524276, 5, 0, 524277, 5, 0, 524278, 5, 0, 524279, 5, 0, 524280, 5, 0, 524281, 5, 0, 524282, 5, 0, 524283, 5, 0, 524284, 5, 0, 524285, 5, 0, 524286, 5, 0, 524287, 5, 0, 458752, 5, 0, 458753, 5, 0, 458754, 5, 0, 458755, 5, 0, 458756, 5, 0, 458757, 5, 0, 458758, 5, 0, 458759, 5, 0, 458760, 5, 0, 458761, 5, 0, 458762, 5, 0, 458763, 5, 0, 458764, 5, 0, 458765, 5, 0, 458766, 5, 0, 458767, 5, 0, 458768, 5, 0, 458769, 5, 0, 458770, 5, 0, 458771, 5, 0, 458772, 5, 0, 458773, 5, 0, 458774, 5, 0, 458775, 5, 0, 458776, 5, 0, 458777, 5, 0, 458778, 5, 0, 458779, 5, 0, 458780, 5, 0, 458781, 5, 0, 458782, 5, 0, 458783, 5, 0, 458784, 5, 0, 458785, 5, 0, 458786, 5, 0, 458787, 5, 0, 458788, 5, 0, 458789, 5, 0, 458790, 5, 0, 458791, 5, 0, 458792, 5, 0, 458793, 5, 0, 458794, 5, 0, 458795, 5, 0, 458796, 5, 0, 458797, 5, 0, 458798, 5, 0, 458799, 5, 0, 458800, 5, 0, 458801, 5, 0, 458802, 5, 0, 458803, 5, 0, 458804, 5, 0, 458805, 5, 0, 458806, 5, 0, 458807, 5, 0, 458808, 5, 0, 458809, 5, 0, 458810, 5, 0, 458811, 5, 0, 458812, 5, 0, 458813, 5, 0, 458814, 5, 0, 458815, 5, 0, 458816, 5, 0, 589812, 5, 0, 589813, 5, 0, 589814, 5, 0, 589815, 5, 0, 589816, 5, 0, 589817, 5, 0, 589818, 5, 0, 589819, 5, 0, 589820, 15, 0, 589821, 18, 0, 589822, 5, 0, 589823, 5, 0, 524288, 5, 0, 524289, 5, 0, 524290, 5, 0, 524291, 5, 0, 524292, 5, 0, 524293, 5, 0, 524294, 5, 0, 524295, 5, 0, 524296, 5, 0, 524297, 5, 0, 524298, 5, 0, 524299, 5, 0, 524300, 5, 0, 524301, 5, 0, 524302, 5, 0, 524303, 5, 0, 524304, 5, 0, 524305, 5, 0, 524306, 5, 0, 524307, 5, 0, 524308, 5, 0, 524309, 5, 0, 524310, 5, 0, 524311, 5, 0, 524312, 5, 0, 524313, 5, 0, 524314, 5, 0, 524315, 5, 0, 524316, 5, 0, 524317, 5, 0, 524318, 5, 0, 524319, 5, 0, 524320, 5, 0, 524321, 5, 0, 524322, 5, 0, 524323, 5, 0, 524324, 5, 0, 524325, 5, 0, 524326, 5, 0, 524327, 5, 0, 524328, 5, 0, 524329, 5, 0, 524330, 15, 0, 524331, 18, 0, 524332, 5, 0, 524333, 5, 0, 524334, 5, 0, 524335, 5, 0, 524336, 5, 0, 524337, 5, 0, 524338, 5, 0, 524339, 5, 0, 524340, 5, 0, 524341, 5, 0, 524342, 5, 0, 524343, 5, 0, 524344, 5, 0, 524345, 5, 0, 524346, 5, 0, 524347, 5, 0, 524348, 5, 0, 524349, 5, 0, 524350, 5, 0, 524351, 5, 0, 524352, 5, 0, 655348, 9, 0, 655349, 9, 0, 655350, 9, 0, 655351, 7, 0, 655352, 9, 0, 655353, 9, 0, 655354, 4, 0, 655355, 7, 0, 655356, 16, 0, 655357, 19, 0, 655358, 9, 0, 655359, 7, 0, 589824, 9, 0, 589825, 7, 0, 589826, 9, 0, 589827, 7, 0, 589828, 9, 0, 589829, 4, 0, 589830, 4, 0, 589831, 7, 0, 589832, 7, 0, 589833, 4, 0, 589834, 9, 0, 589835, 4, 0, 589836, 9, 0, 589837, 7, 0, 589838, 7, 0, 589839, 4, 0, 589840, 9, 0, 589841, 4, 0, 589842, 7, 0, 589843, 9, 0, 589844, 7, 0, 589845, 4, 0, 589846, 4, 0, 589847, 7, 0, 589848, 4, 0, 589849, 9, 0, 589850, 7, 0, 589851, 9, 0, 589852, 9, 0, 589853, 7, 0, 589854, 7, 0, 589855, 9, 0, 589856, 4, 0, 589857, 9, 0, 589858, 7, 0, 589859, 7, 0, 589860, 4, 0, 589861, 9, 0, 589862, 7, 0, 589863, 7, 0, 589864, 16, 0, 589865, 19, 0, 589866, 16, 0, 589867, 19, 0, 589868, 4, 0, 589869, 4, 0, 589870, 7, 0, 589871, 9, 0, 589872, 9, 0, 589873, 7, 0, 589874, 9, 0, 589875, 4, 0, 589876, 7, 0, 589877, 4, 0, 589878, 7, 0, 589879, 7, 0, 589880, 9, 0, 589881, 7, 0, 589882, 7, 0, 589883, 9, 0, 589884, 9, 0, 589885, 7, 0, 589886, 9, 0, 589887, 9, 0, 589888, 7, 0, 720892, 16, 0, 720893, 19, 0, 655400, 16, 0, 655401, 19, 0, 655402, 16, 0, 655403, 19, 0, 786428, 16, 0, 786429, 19, 0, 720936, 16, 0, 720937, 19, 0, 720938, 16, 0, 720939, 19, 0, 851964, 16, 0, 851965, 19, 0, 786472, 14, 0, 786473, 17, 0, 786474, 14, 0, 786475, 17, 0 )
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="FirstTimer" type="Timer" parent="Timers"]
+wait_time = 5.1
+one_shot = true
+autostart = true
+
+[node name="SecondTimer" type="Timer" parent="Timers"]
+wait_time = 7.1
+one_shot = true
+autostart = true
+
+[node name="ThirdTimer" type="Timer" parent="Timers"]
+wait_time = 13.1
+one_shot = true
+autostart = true
+
+[node name="FourthTimer" type="Timer" parent="Timers"]
+wait_time = 15.1
+one_shot = true
+autostart = true
+
+[node name="FifthTimer" type="Timer" parent="Timers"]
+wait_time = 16.1
+one_shot = true
+autostart = true
+
+[node name="FinalTimer" type="Timer" parent="Timers"]
+wait_time = 20.1
+one_shot = true
+autostart = true
+
+[node name="SkipTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="Text" type="Node" parent="."]
+
+[node name="Deluxe Logo" type="Sprite" parent="Text"]
+position = Vector2( 1696, 256 )
+scale = Vector2( 0.533333, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Presents" type="Sprite" parent="Text"]
+position = Vector2( 1696, 416 )
+scale = Vector2( 0.259226, 0.251969 )
+texture = ExtResource( 5 )
+
+[node name="0x72 Logo" type="Sprite" parent="Text"]
+position = Vector2( 3872, 384 )
+scale = Vector2( 0.625336, 0.627451 )
+texture = ExtResource( 6 )
+
+[node name="SpriteBy" type="Sprite" parent="Text"]
+position = Vector2( 3904, 224 )
+scale = Vector2( 0.391353, 0.391353 )
+texture = ExtResource( 7 )
+
+[node name="Soulless" type="Node" parent="."]
+
+[node name="Soulless Run Right" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 4032, 1024 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 2
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right2" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 4160, 896 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right2"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 2
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right2"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right3" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 3968, 576 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right3"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 2
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right3"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right4" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 4224, 640 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right4"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 1
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right4"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right5" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 4352, 768 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+z_index = -1
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right5"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 1
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right5"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right6" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 4288, 960 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right6"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right6"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right8" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 4480, 576 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right8"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 3
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right8"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right9" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 4544, 690.061 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+z_index = -1
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right9"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 3
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right9"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right10" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 5312, 653.298 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+z_index = -1
+script = ExtResource( 8 )
+speed = 300
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right10"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 2
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right10"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Soulless Run Right7" type="KinematicBody2D" parent="Soulless"]
+position = Vector2( 4416, 1024 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+script = ExtResource( 8 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Soulless/Soulless Run Right7"]
+position = Vector2( -349.286, 5.65973 )
+frames = SubResource( 1 )
+animation = "Running"
+frame = 3
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Soulless/Soulless Run Right7"]
+position = Vector2( -21.022, 460.055 )
+scale = Vector2( -1, 1 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="KinematicBody2D" parent="."]
+position = Vector2( -1285.86, 26.4106 )
+script = ExtResource( 13 )
+
+[node name="Hero" type="AnimatedSprite" parent="Sprite"]
+position = Vector2( 1050.6, 720.763 )
+frames = SubResource( 3 )
+animation = "Run"
+frame = 3
+playing = true
+
+[node name="Collision" type="CollisionShape2D" parent="Sprite"]
+position = Vector2( 1052.24, 773.394 )
+shape = SubResource( 4 )
+
+[node name="Camera" type="Camera2D" parent="Sprite"]
+position = Vector2( 1017.78, 576 )
+current = true
+zoom = Vector2( 1.25, 1.25 )
+smoothing_enabled = true
+smoothing_speed = 1.0
+
+[node name="Animated" type="AnimationPlayer" parent="."]
+anims/FirstBoot = SubResource( 5 )
+anims/QuickEnd = SubResource( 6 )
+anims/ToMainMenu = SubResource( 7 )
+
+[node name="Background" type="Sprite" parent="Animated"]
+position = Vector2( 3576.77, 1181.03 )
+scale = Vector2( 1.77675, 1.41209 )
+texture = ExtResource( 2 )
+
+[node name="KeyToSkip" parent="." instance=ExtResource( 22 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+volume_db = -40.0
+autoplay = true
+
+[node name="SkipButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -20.0
+pitch_scale = 0.7
+[connection signal="timeout" from="Timers/FirstTimer" to="Sprite" method="_on_FirstTimer_timeout"]
+[connection signal="timeout" from="Timers/SecondTimer" to="Sprite" method="_on_SecondTimer_timeout"]
+[connection signal="timeout" from="Timers/ThirdTimer" to="Sprite" method="_on_ThirdTimer_timeout"]
+[connection signal="timeout" from="Timers/FourthTimer" to="Sprite" method="_on_FourthTimer_timeout"]
+[connection signal="timeout" from="Timers/FifthTimer" to="." method="_on_FifthTimer_timeout"]
+[connection signal="timeout" from="Timers/FinalTimer" to="." method="_on_FinalTimer_timeout"]
+[connection signal="timeout" from="Timers/SkipTimer" to="." method="_on_SkipTimer_timeout"]

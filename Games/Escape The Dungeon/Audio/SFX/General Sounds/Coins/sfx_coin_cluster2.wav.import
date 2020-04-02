@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_coin_cluster2.wav-d18d9f194c360563c6de001f39e2518e.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/General Sounds/Coins/sfx_coin_cluster2.wav"
+dest_files=[ "res://.import/sfx_coin_cluster2.wav-d18d9f194c360563c6de001f39e2518e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_exp_shortest_soft1.wav-b8ec27d69d53586e453847537085299f.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Explosions/Shortest/sfx_exp_shortest_soft1.wav"
+dest_files=[ "res://.import/sfx_exp_shortest_soft1.wav-b8ec27d69d53586e453847537085299f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

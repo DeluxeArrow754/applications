@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_wpn_sword2.wav-4ec3db309a796b90bd31b3fdb1d478e6.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Weapons/Melee/sfx_wpn_sword2.wav"
+dest_files=[ "res://.import/sfx_wpn_sword2.wav-4ec3db309a796b90bd31b3fdb1d478e6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/TitleCredits.wav-72fda7cc814e97ee313e0dd39680be3a.sample"
+
+[deps]
+
+source_file="res://Audio/Music/TitleCredits.wav"
+dest_files=[ "res://.import/TitleCredits.wav-72fda7cc814e97ee313e0dd39680be3a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

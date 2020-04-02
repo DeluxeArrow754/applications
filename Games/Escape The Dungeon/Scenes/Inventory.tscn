@@ -1,0 +1,443 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Misc/Background.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Inventory/Bag_Open.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Inventory/Bag_Closed.png" type="Texture" id=4]
+[ext_resource path="res://Lighting/Light.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Inventory/Inventory Background.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Inventory/Slot 1x1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Misc/Skull.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Inventory/3x3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Inventory/Player Background.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/HeroInventory.gd" type="Script" id=11]
+[ext_resource path="res://Hero/Hero [1].png" type="Texture" id=12]
+[ext_resource path="res://Hero/Hero [6].png" type="Texture" id=13]
+[ext_resource path="res://Hero/Hero [7].png" type="Texture" id=14]
+[ext_resource path="res://Hero/Hero [8].png" type="Texture" id=15]
+[ext_resource path="res://Hero/Hero [2].png" type="Texture" id=16]
+[ext_resource path="res://Hero/Hero [3].png" type="Texture" id=17]
+[ext_resource path="res://Hero/Hero [4].png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Misc/Inventory.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Emotions/Emotion_06.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Inventory/Slot 2x1.png" type="Texture" id=21]
+[ext_resource path="res://Hero/Sword.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Misc/Amulet.png" type="Texture" id=23]
+[ext_resource path="res://Audio/SFX/General Sounds/Pause Sounds/sfx_sounds_pause7_in.wav" type="AudioStream" id=24]
+[ext_resource path="res://Audio/SFX/General Sounds/Pause Sounds/sfx_sounds_pause7_out.wav" type="AudioStream" id=25]
+
+
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Closed",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "Running",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 26.3489
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.001, 0.001 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.588235 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Inventory:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("NoClose/Bag/Light:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3.0, 0.01 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CloseSound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("NoClose/Bag:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -50 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.001, 0.001 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.588235 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Inventory:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("NoClose/Bag/Light:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.01, 3.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("OpenSound:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("NoClose/Bag:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -50 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Area2D/Emotion_01:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Area2D/Emotion_01:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Inventory" type="Node2D"]
+position = Vector2( 35.1972, 65.6985 )
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1432.95, 858.582 )
+scale = Vector2( 2.67733, 2.67733 )
+texture = ExtResource( 2 )
+
+[node name="NoClose" type="CanvasLayer" parent="."]
+editor/display_folded = true
+
+[node name="Bag" type="AnimatedSprite" parent="NoClose"]
+position = Vector2( 39.1344, 71.1344 )
+scale = Vector2( 0.553637, 0.553637 )
+frames = SubResource( 1 )
+animation = "Closed"
+offset = Vector2( 0, -50 )
+
+[node name="Light" type="Light2D" parent="NoClose/Bag"]
+position = Vector2( -0.242752, -3.85522 )
+scale = Vector2( 0.337613, 0.337613 )
+texture = ExtResource( 5 )
+texture_scale = 4.0
+color = Color( 0.2, 0.133333, 0.054902, 1 )
+energy = 0.01
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
+scale = Vector2( 0.001, 0.001 )
+transform = Transform2D( 0.001, 0, 0, 0.001, 0, 0 )
+
+[node name="Inventory Background" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 974, 631.456 )
+scale = Vector2( 1.796, 1.3901 )
+texture = ExtResource( 6 )
+
+[node name="4x3 Inventory" type="Node" parent="CanvasLayer"]
+editor/display_folded = true
+
+[node name="Slot 1x2" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 872.32, 439.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Skull" type="Sprite" parent="CanvasLayer/4x3 Inventory/Slot 1x2"]
+position = Vector2( -0.463867, 0.260864 )
+scale = Vector2( 2.44565, 2.53623 )
+texture = ExtResource( 8 )
+
+[node name="Slot 1x16" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1704.32, 439.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x7" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1080.32, 439.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x9" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1288.32, 439.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x12" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1496.32, 439.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x3" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 872.32, 631.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x14" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1704.32, 631.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x5" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1080.32, 631.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x10" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1288.32, 631.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x11" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1496.32, 631.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x4" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 872.32, 823.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x15" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1704.32, 823.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x6" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1080.32, 823.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x8" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1288.32, 823.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="Slot 1x13" type="Sprite" parent="CanvasLayer/4x3 Inventory"]
+position = Vector2( 1496.32, 823.82 )
+scale = Vector2( 0.69, 0.69 )
+texture = ExtResource( 7 )
+
+[node name="3x3" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 440, 519.5 )
+scale = Vector2( 2.09375, 2.09375 )
+texture = ExtResource( 9 )
+
+[node name="Player Background" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 440, 519.5 )
+scale = Vector2( 1.9375, 1.9375 )
+texture = ExtResource( 10 )
+
+[node name="HeroInventory" type="KinematicBody2D" parent="CanvasLayer"]
+editor/display_folded = true
+position = Vector2( 440, 511.5 )
+scale = Vector2( 1.19764, 1.19764 )
+script = ExtResource( 11 )
+
+[node name="Hero" type="AnimatedSprite" parent="CanvasLayer/HeroInventory"]
+frames = SubResource( 2 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/HeroInventory"]
+shape = SubResource( 3 )
+disabled = true
+
+[node name="Inventory" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1288, 280 )
+scale = Vector2( 0.332923, 0.332923 )
+texture = ExtResource( 19 )
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer"]
+editor/display_folded = true
+position = Vector2( 1432.95, 905.582 )
+scale = Vector2( 2.67733, 2.67733 )
+
+[node name="Emotion_01" type="Sprite" parent="CanvasLayer/Area2D"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -297.666, -70.8101 )
+scale = Vector2( 0.0641964, 0.0641964 )
+texture = ExtResource( 20 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Area2D"]
+visible = false
+polygon = PoolVector2Array( -463.503, -236.647, -278.244, -236.647, -278.244, -51.3878, -463.503, -51.3878 )
+
+[node name="Slot 2x1" type="Sprite" parent="CanvasLayer"]
+editor/display_folded = true
+position = Vector2( 528, 887.5 )
+scale = Vector2( 0.625, 0.625 )
+texture = ExtResource( 21 )
+
+[node name="Sword" type="Sprite" parent="CanvasLayer/Slot 2x1"]
+position = Vector2( -12.8, -0.00012207 )
+scale = Vector2( 2.13333, 2 )
+texture = ExtResource( 22 )
+
+[node name="Slot 1x1" type="Sprite" parent="CanvasLayer"]
+editor/display_folded = true
+position = Vector2( 272, 887.5 )
+scale = Vector2( 0.625, 0.625 )
+texture = ExtResource( 7 )
+
+[node name="Amulet" type="Sprite" parent="CanvasLayer/Slot 1x1"]
+position = Vector2( -8, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 23 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/Close = SubResource( 4 )
+anims/Open = SubResource( 5 )
+
+[node name="EmotionAnim" type="AnimationPlayer" parent="."]
+anims/Hide = SubResource( 6 )
+anims/Show = SubResource( 7 )
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
+volume_db = -5.0
+
+[node name="CloseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
+volume_db = -5.0
+[connection signal="mouse_entered" from="CanvasLayer/Area2D" to="." method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Area2D" to="." method="_on_Area2D_mouse_exited"]
